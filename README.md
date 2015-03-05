@@ -1,28 +1,6 @@
-== README
+# Portfolio
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the codebase for [github.com/snappy316](David’s) portfolio site.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## Issues
+There is currently an error somewhere in my Rakefile, but I'm too tired to figure out where. When running `rake test`, all tests pass. However, there is a weird `InvalidAuthenticityToken` error in the `delete_an_article_test` when running only `rake`.
