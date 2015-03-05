@@ -13,7 +13,7 @@
 
   <tbody>
     <% @articles.each do |article| %>
-      <tr>
+      <tr id="article-<%= article.id %>">
         <td><%= article.title %></td>
         <td><%= article.body %></td>
         <td><%= link_to 'Show', article %></td>
