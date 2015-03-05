@@ -15,3 +15,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore Mac OSX's .DS_Store file
+.DS_Store
