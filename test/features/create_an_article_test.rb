@@ -10,7 +10,7 @@ feature "Creating an Article" do
     # When I submit the form
     click_on('Create Article')
 
-    #Then a new article is created and displayed
+    # Then a new article is created and displayed
     page.text.must_include("Article was successfully created")
     page.text.must_include(articles(:ror).title)
   end
