@@ -1,10 +1,10 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path("../../config/environment", __FILE__)
+require "rails/test_help"
 require 'capybara/poltergeist'
 require "minitest/rails"
 require "minitest/rails/capybara"
 require "minitest/reporters"
-require "rails/test_help"
 
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, debug: true, js_errors: true)
