@@ -1,3 +1,10 @@
 language: ruby
 rvm:
-  - 2.2.0
+- 2.2.0
+deploy:
+  provider: heroku
+  api_key:
+    secure: Qoek7Gvnc66CHC9GJKE3YgUr4ayfLzue/burfTFX9cugMA6Bo8u68BrQ9uKFYaJyRyZlTCiB5InAbwG0XK47Lcx709WCG8VvAz7Gh2sGsxlRm1bCK/5nq/uglziMx3yvrXRQkFw4cXUtp1ddneSE39v9VOkZfzx+b7hjCrYPqw0=
+  app: dker-awesome-portfolio
+  on:
+    repo: snappy316/portfolio

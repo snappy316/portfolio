@@ -1,5 +1,11 @@
 # Portfolio
 
+[![Build Status](https://travis-ci.org/snappy316/portfolio.svg)](https://travis-ci.org/snappy316/portfolio)
+
+By [David Ker](https://github.com/snappy316)
+
+## Description
+
 This is the codebase for [github.com/snappy316](David’s) portfolio site.
 
 Here is a screenshot of the articles index page:
