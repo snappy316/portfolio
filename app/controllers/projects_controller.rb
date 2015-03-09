@@ -13,7 +13,8 @@ class ProjectsController < ApplicationController
       flash[:notice] = "Project has been created."
       redirect_to @project
     else
-      # later
+      flash.now[:error] = "Project could not be saved."
+      render :new
     end
   end
 
