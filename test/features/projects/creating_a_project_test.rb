@@ -1,7 +1,7 @@
 require "test_helper"
 
-feature "Projects" do
-  scenario "can add a new project" do
+feature "Creating a Project" do
+  scenario "can add a new project with valid data" do
     # Given the form is filled in with valid data
     visit new_project_path
     fill_in("Name", with: "Test Project")
@@ -15,7 +15,7 @@ feature "Projects" do
     page.text.must_include("Test Project")
   end
 
-  scenario "cannot add a new project" do
+  scenario "cannot add a new project with invalid data" do
     # Given the form is filled in with invalid data
     visit new_project_path
     fill_in("Name", with: "A")
