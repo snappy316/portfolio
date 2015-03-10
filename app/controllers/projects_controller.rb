@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update]
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
     @projects = Project.all
@@ -32,6 +32,11 @@ class ProjectsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @project.destroy
+    redirect_to projects_path, notice: 'Project was successfully destroyed.'
   end
 
   private
