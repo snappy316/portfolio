@@ -19,7 +19,46 @@
       </div>
     <% end %>
 
-    <%= yield %>
+    <div class="row">
+      <div class="small-12 medium-4 large-6 columns namelogo">
+        <a href="/"><h1>David Ker</h1></a>
+      </div>
+      <div class="small-12 medium-8 large-6 columns">
+        <div class="nav-bar">
+          <ul class="button-group">
+          <li><a href="#about" class="button">About</a></li>
+          <li><a href="#work" class="button">Work</a></li>
+          <li><a href="<%= articles_path %>" class="button">Blog</a></li>
+          <li><a href="#contact" class="button">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="row">
+      <div class="large-12 columns"> -->
+        <%= yield %>
+      <!-- </div>
+    </div> -->
+
+    <footer class="row">
+      <div class="large-12 columns">
+        <div class="row">
+          <div class="large-6 columns">
+            <p>© Copyright no one at all. Go to town.</p>
+          </div>
+          <div class="large-6 columns">
+            <ul class="inline-list right">
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Suscribe</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/foundation/foundation.clearing.js"></script>
 
   </body>
 </html>
