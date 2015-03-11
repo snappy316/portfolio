@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'minitest-rails'
 gem 'poltergeist'
 gem 'rails', '4.2.0'
+gem 'redcarpet'
 gem 'sass-rails', '~> 5.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'turbolinks'
