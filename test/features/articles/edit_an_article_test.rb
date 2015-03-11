@@ -3,6 +3,7 @@ require "test_helper"
 feature "Editing an Article" do
   scenario "can edit an existing article" do
     # Given an existing article
+    sign_in
     article = articles(:ror)
     visit article_path(article)
 
