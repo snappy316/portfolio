@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   # GET /articles
@@ -28,7 +29,10 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
+        format.html {
+          redirect_to @article, notice: 'Article was successfully created.'
+          current_user.articles << @article
+        }
         format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new }

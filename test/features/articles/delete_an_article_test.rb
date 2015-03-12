@@ -3,6 +3,7 @@ require "test_helper"
 feature "Deleting an Article" do
   scenario "can delete an existing article" do
     # Given an existing article (created in the fixtures)
+    sign_in
     article = articles(:ror)
 
     # When I click "destroy"

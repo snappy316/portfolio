@@ -15,5 +15,6 @@
 //= require foundation
 //= require turbolinks
 //= require_tree .
+//= require smooth_scroll
 
 $(function(){ $(document).foundation(); });
