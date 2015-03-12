@@ -19,3 +19,5 @@ Theme from Zurb Foundation's [templates and themes page](http://foundation.zurb.
 Smooth scrolling script from [CSS Tricks](https://css-tricks.com/snippets/jquery/smooth-scrolling/).
 
 Authentication by the [Devise gem](https://github.com/plataformatec/devise).
+
+Markdown parsing by [Redcarpet](https://github.com/vmg/redcarpet), with help from [RichonRails](http://richonrails.com/articles/rendering-markdown-with-redcarpet)
