@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311152022) do
+ActiveRecord::Schema.define(version: 20150312212900) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150311152022) do
     t.datetime "updated_at", null: false
     t.integer  "author_id"
     t.string   "image_url"
+    t.boolean  "published"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 20150311152022) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "role"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

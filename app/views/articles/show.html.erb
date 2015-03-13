@@ -11,6 +11,11 @@
 </p>
 
 <p>
+  <b>Status:</b>
+  <%= @article.published? ? "Published" : "Unpublished" %>
+</p>
+
+<p>
   <%= image_tag @article.image_url %>
 </p>
 

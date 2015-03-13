@@ -23,6 +23,15 @@
     <%= f.label :image_url %>
     <%= f.text_field :image_url %>
   </div>
+
+  <% if policy(@article).publish? %>
+    <div class="field">
+      <%= f.label :published, title: "Is this article published?", data: { tooltip: true } %>
+      <%= f.check_box :published %>
+    </div>
+  <% end %>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
