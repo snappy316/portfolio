@@ -1,16 +1,55 @@
 require "test_helper"
 
 feature "Deleting an Article" do
-  scenario "can delete an existing article" do
-    # Given an existing article (created in the fixtures)
-    sign_in
-    article = articles(:ror)
+  scenario "editors can delete articles" do
+    # Given I am signed in as an editor
+    sign_in(:editor)
 
-    # When I click "destroy"
+    # When I visit the article index page
     visit articles_path
-    click_on('Destroy')
 
-    # Then the article should no longer appear in the list
-    page.text.wont_include(article.title)
+    # Then I can see and click on "Delete" to delete an article
+    page.text.must_include('Delete')
+    page.first(:css, 'tr.article').click_on('Delete')
+
+    # When I visit an individual article's page
+    visit article_path(articles(:unpub_au).id)
+
+    # Then I can see and click on "Delete" to delete an article
+    page.text.must_include('Delete')
+    click_on('Delete')
+  end
+
+  scenario "authors cannot delete articles" do
+    # Given I am signed in as an author
+    sign_in(:author)
+
+    # When I visit the article index page
+    visit articles_path
+
+    # Then I cannot see a "Delete" link
+    page.text.wont_include('Delete')
+
+    # When I visit an individual article's page
+    visit article_path(articles(:unpub_au).id)
+
+    # Then I cannot see a "Delete" link
+    page.text.wont_include('Delete')
+  end
+
+  scenario "unauthorized users cannot delete articles" do
+    # Given I am not signed in
+
+    # When I visit the article index page
+    visit articles_path
+
+    # Then I cannot see a "Delete" link
+    page.text.wont_include('Delete')
+
+    # When I visit an individual article's page
+    visit article_path(articles(:unpub_au).id)
+
+    # Then I cannot see a "Delete" link
+    page.text.wont_include('Delete')
   end
 end
