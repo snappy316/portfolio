@@ -2,3 +2,28 @@ ror:
   title: Ruby on Rails
   body: ...is amazing!!
   author: bit
+  published: true
+
+pub_ed:
+  title: Published Editor
+  body: This is published
+  author: editor
+  published: true
+
+unpub_ed:
+  title: Unpublished Editor
+  body: This is unpublished
+  author: editor
+  published: false
+
+pub_au:
+  title: Published Author
+  body: This is published
+  author: author
+  published: true
+
+unpub_au:
+  title: Unpublished Author
+  body: This is unpublished
+  author: author
+  published: false
