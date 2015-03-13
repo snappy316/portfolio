@@ -17,6 +17,10 @@ class ArticlePolicy < ApplicationPolicy
     # Taken care of by the scope
   end
 
+  def edit?
+    editor? || authors_own?
+  end
+
   def update?
     editor? || author?
   end
@@ -37,6 +41,11 @@ class ArticlePolicy < ApplicationPolicy
 
   def publish?
     editor?
+  end
+
+  def authors_own?
+    return false unless author?
+    @user.id == @article.author_id
   end
 
   def user_logged_in?
