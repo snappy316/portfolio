@@ -1,8 +1,14 @@
-require 'simplecov'
-SimpleCov.start
+# require 'simplecov'
+# SimpleCov.start
 
-require 'coveralls'
-Coveralls.wear!
+require "simplecov"
+require "coveralls"
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+SimpleCov.start('rails')
 
 ENV["RAILS_ENV"] = "test"
 require File.expand_path("../../config/environment", __FILE__)
@@ -28,4 +34,9 @@ def sign_in(role = :editor)
   fill_in('Email', with: users(role).email)
   fill_in('Password', with: "password")
   click_on('Log in')
+end
+
+def fill_in_form(article = :ror)
+  fill_in('Title', with: articles(article).title)
+    fill_in('Body', with: articles(article).body)
 end

@@ -6,8 +6,7 @@ feature "Creating an Article" do
     sign_in(:author)
 
     visit new_article_path
-    fill_in('Title', with: articles(:unpub_au).title)
-    fill_in('Body', with: articles(:unpub_au).body)
+    fill_in_form(:unpub_au)
 
     # When I submit the form
     click_on('Create Article')
@@ -24,6 +23,7 @@ feature "Creating an Article" do
     # Given I am not authenticated
     # When I visit the new article page
     visit new_article_path
+
     # Then I should be denied and redirected
     page.must_have_content("You need to sign in or sign up before continuing")
   end
@@ -32,6 +32,7 @@ feature "Creating an Article" do
     # Given I am not authenticated
     # When I visit the blog index page
     visit articles_path
+
     # Then I should not see the "New Article" button
     page.wont_have_link("New Article")
   end
@@ -58,8 +59,7 @@ feature "Creating an Article" do
     page.must_have_field('Published')
 
     # When I submit the form
-    fill_in('Title', with: articles(:pub_ed).title)
-    fill_in('Body', with: articles(:pub_ed).body)
+    fill_in_form(:pub_ed)
     check('Published')
     click_on('Create Article')
 
