@@ -6,15 +6,15 @@ feature "Creating an Article" do
     sign_in(:author)
 
     visit new_article_path
-    fill_in('Title', with: articles(:ror).title)
-    fill_in('Body', with: articles(:ror).body)
+    fill_in('Title', with: articles(:unpub_au).title)
+    fill_in('Body', with: articles(:unpub_au).body)
 
     # When I submit the form
     click_on('Create Article')
 
     # Then a new article is created and displayed
     page.text.must_include("Article was successfully created")
-    page.text.must_include(articles(:ror).title)
+    page.text.must_include(articles(:unpub_au).title)
     page.has_css?("#author")
     page.text.must_include(users(:author).email)
     page.text.must_include("Status: Unpublished")
@@ -58,8 +58,8 @@ feature "Creating an Article" do
     page.must_have_field('Published')
 
     # When I submit the form
-    fill_in('Title', with: articles(:ror).title)
-    fill_in('Body', with: articles(:ror).body)
+    fill_in('Title', with: articles(:pub_ed).title)
+    fill_in('Body', with: articles(:pub_ed).body)
     check('Published')
     click_on('Create Article')
 
