@@ -4,6 +4,7 @@ ruby '2.2.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
 gem 'foundation-rails'
+gem 'coveralls', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'minitest-rails'
@@ -22,6 +23,7 @@ group :development, :test do
   gem "minitest-rails-capybara"
   gem 'minitest-reporters'
   gem 'pry-rails'
+  gem 'simplecov', require: false
   gem 'spring'
   gem 'sqlite3'
   gem 'web-console', '~> 2.0'

@@ -1,6 +1,7 @@
 # Portfolio
 
 [![Build Status](https://travis-ci.org/snappy316/portfolio.svg)](https://travis-ci.org/snappy316/portfolio)
+[![Coverage Status](https://coveralls.io/repos/snappy316/portfolio/badge.svg)](https://coveralls.io/r/snappy316/portfolio)
 
 By [David Ker](https://github.com/snappy316)
 
