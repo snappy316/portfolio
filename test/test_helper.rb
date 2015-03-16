@@ -18,6 +18,8 @@ require "minitest/rails"
 require "minitest/rails/capybara"
 require "minitest/reporters"
 
+Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
+
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, debug: true, js_errors: true)
 end

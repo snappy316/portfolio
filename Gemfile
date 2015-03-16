@@ -19,6 +19,8 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'byebug'
+  gem 'guard'
+  gem 'guard-minitest'
   gem 'launchy'
   gem "minitest-rails-capybara"
   gem 'minitest-reporters'
