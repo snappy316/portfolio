@@ -1,8 +1,6 @@
 class ArticlePolicy < ApplicationPolicy
   attr_accessor :user, :article
 
-  # --- CRUD ---
-
   def create?
     editor? || author?
   end
@@ -17,52 +15,5 @@ class ArticlePolicy < ApplicationPolicy
 
   def destroy?
     editor?
-  end
-
-  # --- HELPERS ---
-
-  def author?
-    @user.role == "author"
-  end
-
-  def editor?
-    @user.role == "editor"
-  end
-
-  def publish?
-    editor?
-  end
-
-  def authors_own?
-    @user.id == @record.author_id
-  end
-
-  # --- SCOPE ---
-
-  class Scope
-    attr_reader :user, :scope
-
-    def initialize(user, scope)
-      @user = user || User.new
-      @scope = scope
-    end
-
-    def resolve
-      if editor?
-        scope.all
-      elsif author?
-        scope.where(author_id: user.id)
-      else
-        scope.where(published: true)
-      end
-    end
-
-    def author?
-      @user.role == "author"
-    end
-
-    def editor?
-      @user.role == "editor"
-    end
   end
 end
