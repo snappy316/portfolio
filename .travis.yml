@@ -8,3 +8,7 @@ deploy:
   app: dker-awesome-portfolio
   on:
     repo: snappy316/portfolio
+  run:
+    - "rake db:migrate"
+    - restart
+    - "rake cleanup"

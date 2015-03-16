@@ -38,5 +38,5 @@ end
 
 def fill_in_form(article = :ror)
   fill_in('Title', with: articles(article).title)
-    fill_in('Body', with: articles(article).body)
+  fill_in('Body', with: articles(article).body)
 end

@@ -1,20 +1,10 @@
 class ArticlePolicy < ApplicationPolicy
   attr_accessor :user, :article
 
-  def initialize(user, article)
-    # raise Pundit::NotAuthorizedError, "must be logged in" unless user
-    @user = user
-    @article = article
-  end
-
   # --- CRUD ---
 
   def create?
     editor? || author?
-  end
-
-  def index?
-    # Taken care of by the scope
   end
 
   def edit?
@@ -32,11 +22,11 @@ class ArticlePolicy < ApplicationPolicy
   # --- HELPERS ---
 
   def author?
-    @user.role == "author" if user_logged_in?
+    @user.role == "author"
   end
 
   def editor?
-    @user.role == "editor" if user_logged_in?
+    @user.role == "editor"
   end
 
   def publish?
@@ -44,12 +34,7 @@ class ArticlePolicy < ApplicationPolicy
   end
 
   def authors_own?
-    return false unless author?
-    @user.id == @article.author_id
-  end
-
-  def user_logged_in?
-    true unless @user.nil?
+    @user.id == @record.author_id
   end
 
   # --- SCOPE ---
@@ -58,14 +43,14 @@ class ArticlePolicy < ApplicationPolicy
     attr_reader :user, :scope
 
     def initialize(user, scope)
-      @user = user
+      @user = user || User.new
       @scope = scope
     end
 
     def resolve
-      if user_logged_in? && editor?
+      if editor?
         scope.all
-      elsif user_logged_in? && author?
+      elsif author?
         scope.where(author_id: user.id)
       else
         scope.where(published: true)
@@ -73,15 +58,11 @@ class ArticlePolicy < ApplicationPolicy
     end
 
     def author?
-      @user.role == "author" if user_logged_in?
+      @user.role == "author"
     end
 
     def editor?
-      @user.role == "editor" if user_logged_in?
-    end
-
-    def user_logged_in?
-      true unless @user.nil?
+      @user.role == "editor"
     end
   end
 end
