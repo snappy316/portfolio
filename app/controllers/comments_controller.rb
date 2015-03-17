@@ -6,11 +6,13 @@ class CommentsController < ApplicationController
   end
 
   def new
+    @article = Article.find(params[:article_id])
+    @comment = @article.comments.build
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    @article = Article.find(@comment.article_id)
+    @article = Article.find(params[:article_id])
+    @comment = @article.comments.build(comment_params)
 
     if @comment.save
       redirect_to @article, notice: 'Comment submitted for approval'
