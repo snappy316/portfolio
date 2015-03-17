@@ -1,0 +1,14 @@
+<%= form_for @comment do |f| %>
+  <div class="field">
+    <%= f.label :content, "New comment:" %>
+    <%= f.text_area :content %>
+    <%= f.hidden_field :article_id, value: @article.id %>
+    <% if current_user %>
+      <%= f.hidden_field :commenter_email, value: current_user.email %>
+    <% else %>
+      <%= f.hidden_field :commenter_email, value: "Anonymous Coward" %>
+    <% end %>
+
+    <%= f.submit %>
+  </div>
+<% end %>

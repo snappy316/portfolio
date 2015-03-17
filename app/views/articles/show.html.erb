@@ -24,11 +24,23 @@
   <%= markdown(@article.body) %>
 </p>
 
-<% if policy(@article).editor? || policy(@article).authors_own? %>
-  <%= link_to 'Edit', edit_article_path(@article) %> |
-<% end %>
-<% if policy(@article).destroy? %>
-  <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' } %> |
-<% end %>
+<div>
+  <hr>
+  <%= render template: "comments/index" %>
+  <%= render template: "comments/new" %>
+</div>
 
-<%= link_to 'Back', articles_path %>
+<div>
+  <hr>
+  <% if policy(@article).editor? || policy(@article).authors_own? %>
+    <%= link_to 'Edit', edit_article_path(@article) %> |
+  <% end %>
+  <% if policy(@article).destroy? %>
+    <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <% end %>
+</div>
+
+<div>
+  <hr>
+  <%= link_to 'Back', articles_path %>
+</div>

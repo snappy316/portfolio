@@ -39,7 +39,6 @@ class ApplicationPolicy
     Pundit.policy_scope!(user, record.class)
   end
 
-
   def author?
     @user.role == "author"
   end
