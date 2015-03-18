@@ -32,7 +32,7 @@
 
 <div>
   <hr>
-  <% if policy(@article).editor? || policy(@article).authors_own? %>
+  <% if policy(@article).edit? || policy(@article).authors_own? %>
     <%= link_to 'Edit', edit_article_path(@article) %> |
   <% end %>
   <% if policy(@article).destroy? %>

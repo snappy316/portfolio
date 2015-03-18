@@ -38,12 +38,4 @@ class ApplicationPolicy
   def scope
     Pundit.policy_scope!(user, record.class)
   end
-
-  def author?
-    @user.author?
-  end
-
-  def editor?
-    @user.editor?
-  end
 end
