@@ -1,6 +1,10 @@
 class CommentPolicy < ApplicationPolicy
   attr_accessor :user, :comment
 
+  def update?
+    @user.editor?
+  end
+
   class Scope
     attr_reader :user, :scope
 
@@ -10,19 +14,11 @@ class CommentPolicy < ApplicationPolicy
     end
 
     def resolve
-      if editor?
+      if @user.editor?
         scope.all
       else
         scope.where(approved: true)
       end
-    end
-
-    def author?
-      @user.role == "author"
-    end
-
-    def editor?
-      @user.role == "editor"
     end
   end
 end

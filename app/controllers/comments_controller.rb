@@ -26,6 +26,7 @@ class CommentsController < ApplicationController
     @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
 
+    authorize @comment
     if @comment.update(comment_params)
       redirect_to @article, notice: 'Comment was successfully approved.'
     else
