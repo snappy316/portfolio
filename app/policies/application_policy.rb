@@ -40,10 +40,10 @@ class ApplicationPolicy
   end
 
   def author?
-    @user.role == "author"
+    @user.author?
   end
 
   def editor?
-    @user.role == "editor"
+    @user.editor?
   end
 end
