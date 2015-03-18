@@ -22,10 +22,21 @@ class CommentsController < ApplicationController
     end
   end
 
+  def update
+    @article = Article.find(params[:article_id])
+    @comment = @article.comments.find(params[:id])
+
+    if @comment.update(comment_params)
+      redirect_to @article, notice: 'Comment was successfully approved.'
+    else
+      redirect_to @article, error: 'Comment not approved.'
+    end
+  end
+
   private
 
   def comment_params
-    params.require(:comment).permit(:article_id, :content, :commenter_name, :commenter_url, :commenter_email)
+    params.require(:comment).permit(:approved, :article_id, :content, :commenter_name, :commenter_url, :commenter_email)
   end
 
 end

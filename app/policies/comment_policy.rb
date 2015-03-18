@@ -1,5 +1,5 @@
 class CommentPolicy < ApplicationPolicy
-  attr_accessor :user, :article
+  attr_accessor :user, :comment
 
   class Scope
     attr_reader :user, :scope

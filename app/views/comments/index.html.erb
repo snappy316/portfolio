@@ -1,5 +1,24 @@
 <strong>Comments:</strong><br>
-<% @comments.each do |comment| %>
-  <strong><%= comment.commenter_email %></strong>
-  <p><%= comment.content %> - <%= comment.approved? ? "Approved" : "Not approved" %></p>
-<% end %>
+<div class="comment-container">
+  <% @comments.each do |comment| %>
+    <div class="comment">
+      <strong><%= comment.commenter_email %></strong>
+      <div class="content">
+        <%= comment.content %>
+      </div>
+      <% if current_user && current_user.role == "editor" %>
+        <div class="approval">
+          <% if comment.approved? %>
+            Approved
+          <% else %>
+            Not Approved -
+            <%= form_for [@article, comment] do |f| %>
+              <%= f.hidden_field :approved, value: true%>
+              <%= f.submit "Approve" %>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
