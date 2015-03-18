@@ -8,11 +8,20 @@
     padding: 10px;
     border-bottom: 1px dashed;
   }
+  .comment:last-child {
+    border-bottom: 0;
+  }
   .content {
 
   }
   .approval {
-    font-style: italic;
+    padding-top: 10px;
+    .button {
+      margin-right: 20px;
+    }
+    form {
+      display: inline;
+    }
   }
 }
 

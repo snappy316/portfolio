@@ -9,12 +9,11 @@
       <% if current_user && current_user.role == "editor" %>
         <div class="approval">
           <% if comment.approved? %>
-            Approved
+            <p class="button small disabled">Approved</p>
           <% else %>
-            Not Approved -
             <%= form_for [@article, comment] do |f| %>
               <%= f.hidden_field :approved, value: true%>
-              <%= f.submit "Approve", class: "button small" %>
+              <%= f.submit "Approve", class: "button small approve" %>
             <% end %>
           <% end %>
 
