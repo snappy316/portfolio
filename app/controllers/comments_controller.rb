@@ -33,6 +33,14 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @article = Article.find(params[:article_id])
+    @comment = @article.comments.find(params[:id])
+
+    @comment.destroy
+    redirect_to @article, notice: 'Comment was deleted.'
+  end
+
   private
 
   def comment_params

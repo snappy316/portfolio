@@ -14,8 +14,12 @@
             Not Approved -
             <%= form_for [@article, comment] do |f| %>
               <%= f.hidden_field :approved, value: true%>
-              <%= f.submit "Approve" %>
+              <%= f.submit "Approve", class: "button small" %>
             <% end %>
+          <% end %>
+
+          <%= form_for [@article, comment], method: :delete do |f| %>
+            <%= f.submit "Delete", class: "button small" %>
           <% end %>
         </div>
       <% end %>
