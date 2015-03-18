@@ -2,15 +2,17 @@
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  commenter_name: MyString
-  commenter_url: MyString
-  commenter_email: MyString
-  content: MyText
-  article_id: 
+  commenter_name: author
+  commenter_url: google.com
+  commenter_email: author@test.com
+  content: Approved Comment
+  article: pub_au
+  approved: true
 
 two:
-  commenter_name: MyString
-  commenter_url: MyString
-  commenter_email: MyString
-  content: MyText
-  article_id: 
+  commenter_name: author
+  commenter_url: google.com
+  commenter_email: author@test.com
+  content: Unapproved Comment
+  article: pub_au
+  approved: false
