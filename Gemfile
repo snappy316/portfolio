@@ -2,12 +2,13 @@ source 'https://rubygems.org'
 
 ruby '2.2.0'
 gem 'coffee-rails', '~> 4.1.0'
+gem 'coveralls', require: false
 gem 'devise'
 gem 'foundation-rails'
-gem 'coveralls', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'minitest-rails'
+gem 'omniauth-twitter'
 gem 'poltergeist'
 gem 'pundit'
 gem 'rails', '4.2.0'
@@ -19,6 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'byebug'
+  gem 'dotenv-rails'
   gem 'guard'
   gem 'guard-minitest'
   gem 'launchy'

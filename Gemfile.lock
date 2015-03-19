@@ -81,6 +81,9 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     docile (1.1.5)
+    dotenv (2.0.0)
+    dotenv-rails (2.0.0)
+      dotenv (= 2.0.0)
     erubis (2.7.0)
     execjs (2.3.0)
     ffi (1.9.8)
@@ -103,6 +106,7 @@ GEM
     guard-minitest (2.4.4)
       guard-compat (~> 1.2)
       minitest (>= 3.0)
+    hashie (3.4.0)
     hike (1.2.3)
     hitimes (1.2.2)
     i18n (0.7.0)
@@ -156,6 +160,16 @@ GEM
     notiffany (0.0.6)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    oauth (0.4.7)
+    omniauth (1.2.2)
+      hashie (>= 1.2, < 4)
+      rack (~> 1.0)
+    omniauth-oauth (1.0.1)
+      oauth
+      omniauth (~> 1.0)
+    omniauth-twitter (1.1.0)
+      multi_json (~> 1.3)
+      omniauth-oauth (~> 1.0)
     orm_adapter (0.5.0)
     pg (0.18.1)
     poltergeist (1.6.0)
@@ -279,6 +293,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   coveralls
   devise
+  dotenv-rails
   foundation-rails
   guard
   guard-minitest
@@ -288,6 +303,7 @@ DEPENDENCIES
   minitest-rails
   minitest-rails-capybara
   minitest-reporters
+  omniauth-twitter
   pg
   poltergeist
   pry-rails
