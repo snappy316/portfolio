@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/snappy316/portfolio.svg)](https://travis-ci.org/snappy316/portfolio)
 [![Coverage Status](https://coveralls.io/repos/snappy316/portfolio/badge.svg)](https://coveralls.io/r/snappy316/portfolio)
+[![Code Climate](https://codeclimate.com/github/snappy316/portfolio/badges/gpa.svg)](https://codeclimate.com/github/snappy316/portfolio)
 
 By [David Ker](https://github.com/snappy316)
 

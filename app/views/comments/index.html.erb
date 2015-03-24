@@ -1,0 +1,27 @@
+<strong>Comments:</strong><br>
+<div class="comment-container">
+  <% @comments.each do |comment| %>
+    <div class="comment">
+      <strong><%= comment.commenter_email %></strong>
+      <div class="content">
+        <%= comment.content %>
+      </div>
+      <% if current_user && current_user.role == "editor" %>
+        <div class="approval">
+          <% if comment.approved? %>
+            <p class="button small disabled">Approved</p>
+          <% else %>
+            <%= form_for [@article, comment] do |f| %>
+              <%= f.hidden_field :approved, value: true%>
+              <%= f.submit "Approve", class: "button small approve" %>
+            <% end %>
+          <% end %>
+
+          <%= form_for [@article, comment], method: :delete do |f| %>
+            <%= f.submit "Delete", class: "button small" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

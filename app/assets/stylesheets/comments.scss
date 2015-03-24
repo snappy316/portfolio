@@ -1,0 +1,28 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comment-container {
+  width: 60%;
+  .comment {
+    padding: 10px;
+    border-bottom: 1px dashed;
+  }
+  .comment:last-child {
+    border-bottom: 0;
+  }
+  .content {
+
+  }
+  .approval {
+    padding-top: 10px;
+    .button {
+      margin-right: 20px;
+    }
+    form {
+      display: inline;
+    }
+  }
+}
+
+
