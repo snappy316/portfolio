@@ -19,3 +19,4 @@
 
 # Ignore Mac OSX's .DS_Store file
 .DS_Store
+.env
