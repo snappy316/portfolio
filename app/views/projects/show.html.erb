@@ -2,7 +2,7 @@
 <p>
   <% if @project.image_processed? %>
     <%= image_tag @project.image_url(:thumb).to_s %>
-  <% else %>
+  <% elsif @project.image_url %>
     <em>Processing...</em>
   <% end %>
 </p>

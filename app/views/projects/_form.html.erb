@@ -10,9 +10,12 @@
       </ul>
     </div>
   <% end %>
-  <%= f.hidden_field :key %>
 
-  <p>File: <%= @project.image_name %></p>
+  <% if @project.image_url.present? || :key.empty? %>
+    <%= f.hidden_field :key %>
+
+    <p>File: <%= @project.image_name %></p>
+  <% end %>
 
   <div class="field">
     <%= f.label :name %><br>
