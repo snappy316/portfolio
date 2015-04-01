@@ -20,8 +20,8 @@ class Project < ActiveRecord::Base
       project = Project.find(id)
       project.key = key
       project.remote_image_url = project.image.direct_fog_url(with_path: true)
-      project.save!
       project.update_column(:image_processed, true)
+      project.save!
     end
   end
 end
