@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'sidekiq'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'unicorn'
 
 group :development, :test do
   gem 'byebug'
