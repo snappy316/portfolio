@@ -95,6 +95,9 @@ GEM
     dotenv (2.0.0)
     dotenv-rails (2.0.0)
       dotenv (= 2.0.0)
+    email_spec (1.6.0)
+      launchy (~> 2.1)
+      mail (~> 2.2)
     erubis (2.7.0)
     excon (0.45.1)
     execjs (2.3.0)
@@ -234,6 +237,8 @@ GEM
       capybara (~> 2.2)
       minitest (~> 5.0)
       rake
+    minitest-matchers (1.4.1)
+      minitest (~> 5.0)
     minitest-metadata (0.5.3)
       minitest (>= 4.7, < 6.0)
     minitest-rails (2.1.1)
@@ -429,6 +434,7 @@ DEPENDENCIES
   coveralls
   devise
   dotenv-rails
+  email_spec
   fog
   fog-aws
   foundation-rails
@@ -437,6 +443,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
+  minitest-matchers
   minitest-rails
   minitest-rails-capybara
   minitest-reporters
