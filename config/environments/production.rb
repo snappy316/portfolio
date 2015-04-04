@@ -1,7 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.cache_store = :redis_store, 'redis://redistogo:225db16ed70ba6036a989c4ccaecb381@angelfish.redistogo.com:11265/'
+  config.cache_store = :redis_store, ENV["REDISTOGO_URL"]
   # Code is not reloaded between requests.
   config.cache_classes = true
 
