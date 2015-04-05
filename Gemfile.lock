@@ -286,6 +286,12 @@ GEM
       cliver (~> 0.3.1)
       multi_json (~> 1.0)
       websocket-driver (>= 0.2.0)
+    postmark (1.5.0)
+      json
+      rake
+    postmark-rails (0.10.0)
+      actionmailer (>= 3.0.0)
+      postmark (~> 1.5.0)
     pry (0.9.12.6)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -458,6 +464,7 @@ DEPENDENCIES
   omniauth-twitter
   pg
   poltergeist
+  postmark-rails
   pry-rails
   pundit
   rails (= 4.2.0)

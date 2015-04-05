@@ -8,7 +8,7 @@ class Contact < MailForm::Base
     {
       subject: "dker.us contact",
       to: "snappy316@gmail.com",
-      from: %("#{name}" <#{email}>)
+      from: 'dave@daknotes.com'
     }
   end
 end
