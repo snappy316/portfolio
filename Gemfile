@@ -11,10 +11,12 @@ gem 'fog-aws'
 gem 'foundation-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
+gem 'mail_form'
 gem 'minitest-rails'
 gem 'newrelic_rpm'
 gem 'omniauth-twitter'
 gem 'poltergeist'
+gem 'postmark-rails'
 gem 'pundit'
 gem 'rails', '4.2.0'
 gem 'redcarpet'
@@ -23,6 +25,7 @@ gem 'rmagick'
 gem 'sass-rails', '~> 5.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'sidekiq'
+gem 'simple_form'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
@@ -40,6 +43,11 @@ group :development, :test do
   gem 'spring'
   gem 'sqlite3'
   gem 'web-console', '~> 2.0'
+end
+
+group :test do
+  gem 'email_spec'
+  gem 'minitest-matchers'
 end
 
 group :production do

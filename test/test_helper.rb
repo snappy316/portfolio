@@ -1,6 +1,3 @@
-# require 'simplecov'
-# SimpleCov.start
-
 require "simplecov"
 require "coveralls"
 
@@ -17,6 +14,8 @@ require 'capybara/poltergeist'
 require "minitest/rails"
 require "minitest/rails/capybara"
 require "minitest/reporters"
+require 'minitest-matchers'
+require 'email_spec'
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
@@ -29,6 +28,11 @@ Capybara.javascript_driver = :poltergeist
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
   fixtures :all
+end
+
+class MiniTest::Unit::TestCase
+  include EmailSpec::Helpers
+  include EmailSpec::Matchers
 end
 
 def sign_in(role = :editor)
