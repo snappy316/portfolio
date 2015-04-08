@@ -26,30 +26,60 @@ class ArticlesController < ApplicationController
   # POST /articles
   def create
     @article = Article.new(article_params)
-
     authorize @article
-    if @article.save
-      redirect_to @article, notice: 'Article was successfully created.'
-      current_user.articles << @article
-    else
-      render :new
+
+    respond_to do |format|
+      format.html do
+        if @article.save
+          redirect_to @article, notice: 'Article was successfully created.'
+          current_user.articles << @article
+        else
+          render :new
+        end
+      end
+
+      format.js do
+        if @article.save
+          current_user.articles << @article
+        else
+          render text: @article.errors.full_messages.join,
+          status: :unprocessable_entity
+        end
+      end
     end
   end
 
   # PATCH/PUT /articles/1
   def update
     authorize @article
-    if @article.update(article_params)
-      redirect_to @article, notice: 'Article was successfully updated.'
-    else
-      render :edit
+
+    respond_to do |format|
+      format.html do
+        if @article.update(article_params)
+          redirect_to @article, notice: 'Article was successfully updated.'
+        else
+          render :edit
+        end
+      end
+
+      format.js do
+        @article.update(article_params)
+      end
     end
   end
 
   # DELETE /articles/1
   def destroy
     @article.destroy
-    redirect_to articles_url, notice: 'Article was successfully destroyed.'
+    respond_to do |format|
+      format.html do
+        redirect_to articles_url, notice: 'Article was successfully destroyed.'
+      end
+
+      format.js do
+        # render layout: false
+      end
+    end
   end
 
   private
