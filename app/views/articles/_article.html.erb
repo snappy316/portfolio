@@ -1,0 +1,11 @@
+<tr class="article" id="article-<%= article.id %>">
+  <td><%= article.title %></td>
+  <td><%= markdown(article.body) %></td>
+  <td><%= link_to 'Show', article %></td>
+  <%# if policy(@articles).update? %>
+    <td><%= link_to 'Edit', edit_article_path(article) %></td>
+  <%# end %>
+  <%# if policy(@articles).destroy? %>
+    <td><%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <%# end %>
+</tr>

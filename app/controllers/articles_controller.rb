@@ -26,13 +26,27 @@ class ArticlesController < ApplicationController
   # POST /articles
   def create
     @article = Article.new(article_params)
-
     authorize @article
-    if @article.save
-      redirect_to @article, notice: 'Article was successfully created.'
-      current_user.articles << @article
-    else
-      render :new
+
+    respond_to do |format|
+      format.html do
+        if @article.save
+          redirect_to @article, notice: 'Article was successfully created.'
+          current_user.articles << @article
+        else
+          render :new
+        end
+      end
+
+      format.js do
+        if @article.save
+          flash[:notice] = 'Article was successfully created.'
+          current_user.articles << @article
+        else
+          render text: @article.errors.full_messages.join,
+          status: :unprocessable_entity
+        end
+      end
     end
   end
 
