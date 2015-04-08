@@ -1,0 +1,3 @@
+$('#edit_article_<%= @article.id %>').remove();
+$('#articles_container').show('slow');
+$('#article-<%= @article.id %>').replaceWith('<%= j render(@article) %>');

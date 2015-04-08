@@ -52,10 +52,19 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   def update
     authorize @article
-    if @article.update(article_params)
-      redirect_to @article, notice: 'Article was successfully updated.'
-    else
-      render :edit
+
+    respond_to do |format|
+      format.html do
+        if @article.update(article_params)
+          redirect_to @article, notice: 'Article was successfully updated.'
+        else
+          render :edit
+        end
+      end
+
+      format.js do
+        @article.update(article_params)
+      end
     end
   end
 
