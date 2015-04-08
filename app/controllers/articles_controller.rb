@@ -40,7 +40,6 @@ class ArticlesController < ApplicationController
 
       format.js do
         if @article.save
-          flash[:notice] = 'Article was successfully created.'
           current_user.articles << @article
         else
           render text: @article.errors.full_messages.join,
