@@ -71,7 +71,15 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   def destroy
     @article.destroy
-    redirect_to articles_url, notice: 'Article was successfully destroyed.'
+    respond_to do |format|
+      format.html do
+        redirect_to articles_url, notice: 'Article was successfully destroyed.'
+      end
+
+      format.js do
+        # render layout: false
+      end
+    end
   end
 
   private
