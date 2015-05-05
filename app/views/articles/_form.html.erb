@@ -1,4 +1,6 @@
 <%= form_for @article, remote: true do |f| %>
+  <h1><%= @article.new_record? ? "New" : "Edit" %> Article</h1>
+
   <% if @article.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>

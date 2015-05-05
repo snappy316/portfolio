@@ -20,5 +20,5 @@
 $(function(){ $(document).foundation(); });
 
 $(document).ajaxError(function(event, xhr, settings, exception) {
-  return alert(xhr.responseText);
+  return alert("Sorry, the form couldn't be saved. YOU SUCK. I'm sorry, I didn't have my coffee.");
 });

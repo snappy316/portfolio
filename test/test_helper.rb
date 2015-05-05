@@ -20,7 +20,7 @@ require 'email_spec'
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, debug: true, js_errors: true)
+  Capybara::Poltergeist::Driver.new(app, debug: false, js_errors: true)
 end
 
 Capybara.javascript_driver = :poltergeist

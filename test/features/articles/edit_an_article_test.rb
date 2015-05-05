@@ -31,12 +31,14 @@ feature "Editing an Article" do
     page.text.must_include('You are not authorized')
   end
 
-  scenario "editor can edit any article" do
+  scenario "editor can edit any article" do#, js: true do
     # Given I am signed in as an editor
     sign_in(:editor)
 
+    visit articles_path
+
     # When I edit an author's article
-    visit edit_article_path(articles(:ror).id)
+    page.find("#article_" + articles(:ror).id.to_s).first(:link, 'Edit').click
     fill_in('Body', with: '...is awesome!')
     click_on('Update Article')
 

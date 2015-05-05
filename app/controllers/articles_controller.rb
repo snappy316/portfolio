@@ -42,8 +42,7 @@ class ArticlesController < ApplicationController
         if @article.save
           current_user.articles << @article
         else
-          render text: @article.errors.full_messages.join,
-          status: :unprocessable_entity
+          render :new, status: :unprocessable_entity
         end
       end
     end
