@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.0'
+ruby '2.2.2'
 gem 'carrierwave'
 gem 'carrierwave_direct'
 gem 'coffee-rails', '~> 4.1.0'
