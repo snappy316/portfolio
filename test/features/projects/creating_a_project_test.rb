@@ -2,6 +2,7 @@ require "test_helper"
 
 feature "Creating a Project" do
   scenario "can add a new project with valid data" do
+    skip
     # Given the form is filled in with valid data
     visit new_project_path
     fill_in("Name", with: "Test Project")

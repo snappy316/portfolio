@@ -3,6 +3,7 @@ require "test_helper"
 feature "Editing a Project" do
   scenario "can edit a project with valid data" do
     # Given an existing project, and valid data entered into the "edit" form
+    skip
     visit edit_project_path(projects(:portfolio))
     fill_in("Name", with: "Awesome Portfolio")
 
