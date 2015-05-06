@@ -23,6 +23,9 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    if request.path != project_path(@project)
+      redirect_to @project, status: 301
+    end
   end
 
   def edit
@@ -44,10 +47,10 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :technologies_used, :image, :key)
+    params.require(:project).permit(:name, :slug, :technologies_used, :image, :key)
   end
 
   def set_project
-    @project = Project.find(params[:id])
+    @project = Project.friendly.find(params[:id])
   end
 end
