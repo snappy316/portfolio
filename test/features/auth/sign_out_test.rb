@@ -11,6 +11,7 @@ feature "Sign out from the website" do
 
     # Then the user should be signed out
     page.text.must_include("Signed out successfully")
-    page.text.must_include("Sign In")
+    # page.text.must_include("Sign In")
+    page.text.wont_include("Sign In")
   end
 end
