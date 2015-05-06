@@ -27,7 +27,7 @@
         <div class="nav-bar">
           <ul class="button-group">
           <li><a href="#about" class="button">About</a></li>
-          <li><a href="#work" class="button">Work</a></li>
+          <li><a href="#projects" class="button">Projects</a></li>
           <li><a href="<%= articles_path %>" class="button">Blog</a></li>
           <% if current_user.present? %>
             <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete , class: 'button' %></li>
