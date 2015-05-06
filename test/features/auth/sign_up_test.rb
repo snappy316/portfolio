@@ -3,8 +3,9 @@ require "test_helper"
 feature "Sign up for the website" do
   scenario "can sign up using Devise" do
     # Given a sign up form
-    visit root_path
-    click_on "Sign Up"
+    #visit root_path
+    #click_on "Sign Up"
+    visit new_user_registration_path
 
     # When I put in valid data
     fill_in("Email", with: "test@test.com")

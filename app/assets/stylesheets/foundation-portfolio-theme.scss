@@ -1,6 +1,19 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:600,400,200');
+@import url('https://fonts.googleapis.com/css?family=Raleway:700,600,400,200');
 @import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light');
 
+
+#david, #ker {
+  text-transform: uppercase;
+  font-family: 'Raleway';
+}
+
+#david {
+  font-weight: 700;
+}
+
+#ker {
+  font-weight: 200;
+}
 
 body {
   font-family:'Raleway',Helvetica,Arial,sans-serif;
@@ -79,9 +92,18 @@ body {
   text-align:center;
 }
 
+.intro-text p {
+  font-family:'Shadows Into Light',cursive;
+  font-size:18px;
+  line-height: 0.6em;
+}
+
 @media only screen and (min-width: 40.063em)  {
   .intro-text {
-    padding-top:25%;
+    padding-top:20%;
+  }
+  .intro-text p {
+    font-size: 35px;
   }
 }
 
@@ -89,11 +111,9 @@ body {
   .intro-text {
     padding-top:18%;
   }
-}
-
-.intro-text p {
-  font-family:'Shadows Into Light',cursive;
-  font-size:44px;
+  .intro-text p {
+    font-size: 44px;
+  }
 }
 
 .about,.work,.contact {

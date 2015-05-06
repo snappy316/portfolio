@@ -1,6 +1,6 @@
 # Portfolio
 
-[![Build Status](https://travis-ci.org/snappy316/portfolio.svg)](https://travis-ci.org/snappy316/portfolio)
+[![Codeship Status for snappy316/portfolio](https://codeship.com/projects/6f296ab0-d5a6-0132-348c-26dfd4cc1a97/status?branch=master)](https://codeship.com/projects/78136)
 [![Coverage Status](https://coveralls.io/repos/snappy316/portfolio/badge.svg)](https://coveralls.io/r/snappy316/portfolio)
 [![Code Climate](https://codeclimate.com/github/snappy316/portfolio/badges/gpa.svg)](https://codeclimate.com/github/snappy316/portfolio)
 
