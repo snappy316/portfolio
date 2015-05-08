@@ -1,7 +1,9 @@
 require "test_helper"
 
 feature "Deleting a project" do
-  scenario "can delete a project" do
+  scenario "editors can delete a project" do
+    # Given I am signed in
+    sign_in
     # Given projects in the database from fixtures
 
     # When I click "Destroy" on a project's show page
