@@ -9,6 +9,8 @@
 <p>Technologies used: <%= @project.technologies_used %></p>
 <br>
 <div class="nav">
-  <%= link_to 'Edit', edit_project_path(@project) %>
-  <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% if policy(@project).update? %>
+    <%= link_to 'Edit', edit_project_path(@project) %>
+    <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
 </div>
