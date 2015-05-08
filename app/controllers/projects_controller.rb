@@ -9,10 +9,13 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new(key: params[:key])
+    authorize @project
   end
 
   def create
     @project = Project.new(project_params)
+    authorize @project
+
     if @project.save
       flash[:notice] = "Project has been created."
       redirect_to @project
@@ -29,9 +32,12 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    authorize @project
   end
 
   def update
+    authorize @project
+
     if @project.update_attributes(project_params)
       redirect_to @project, notice: 'Project was successfully updated.'
     else
@@ -40,6 +46,8 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+    authorize @project
+
     @project.destroy
     redirect_to projects_path, notice: 'Project was successfully destroyed.'
   end
