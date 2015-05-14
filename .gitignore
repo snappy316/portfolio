@@ -19,6 +19,11 @@
 
 # Ignore Mac OSX's .DS_Store file
 .DS_Store
+
+# Ignore dot files
 .env
+Procfile.dev
+
+# Ignore other files
 dump.rdb
 /public/uploads
