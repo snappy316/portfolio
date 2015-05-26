@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require_tree .
 //= require smooth_scroll
+//= require pagination
 
 $(function(){ $(document).foundation(); });
 
