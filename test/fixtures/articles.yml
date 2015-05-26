@@ -1,29 +1,41 @@
+javascript:
+  title: JavaScript
+  body: ...is amazing!!
+  author: bit
+  published: true
+  created_at: <%= 6.day.ago.to_s(:db) %>
+
 ror:
   title: Ruby on Rails
   body: ...is amazing!!
   author: bit
   published: true
+  created_at: <%= 5.day.ago.to_s(:db) %>
 
 pub_ed:
   title: Published Editor
   body: This is published
   author: editor
   published: true
+  created_at: <%= 4.day.ago.to_s(:db) %>
 
 unpub_ed:
   title: Unpublished Editor
   body: This is unpublished
   author: editor
   published: false
+  created_at: <%= 3.day.ago.to_s(:db) %>
 
 pub_au:
   title: Published Author
   body: This is published
   author: author
   published: true
+  created_at: <%= 2.day.ago.to_s(:db) %>
 
 unpub_au:
   title: Unpublished Author
   body: This is unpublished
   author: author
   published: false
+  created_at: <%= 1.day.ago.to_s(:db) %>

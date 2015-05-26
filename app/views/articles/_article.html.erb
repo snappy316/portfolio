@@ -2,15 +2,14 @@
 
 <h1><%= @article.title %></h1>
 
+<% unless @article.published? %>
+  <h5>-- UNPUBLISHED --</h5>
+<% end %>
+
 <p id="author">
   <em><%= @article.author.email %></em>
 </p>
 
-<!-- <p>
-  <b>Status:</b>
-  <%# @article.published? ? "Published" : "Unpublished" %>
-</p>
- -->
 <p>
   <%= image_tag @article.image_url %>
 </p>

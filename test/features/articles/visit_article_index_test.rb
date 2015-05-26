@@ -43,8 +43,8 @@ feature "Visit the Article Index" do
   end
 
   scenario "articles are paginated" do
-    skip
     # Given any user
+    sign_in
 
     # When I go to the articles page
     visit articles_path
