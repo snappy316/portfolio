@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+<p id="author">
+  <b>By:</b>
+  <%= @article.author.email %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @article.published? ? "Published" : "Unpublished" %>
+</p>
+
+<p>
+  <%= image_tag @article.image_url %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= markdown(@article.body) %>
+</p>
+
+<div>
+  <hr>
+  <%= render template: "comments/index" %>
+  <%= render template: "comments/new" %>
+</div>
+
+<div>
+  <hr>
+  <% if policy(@article).edit? || policy(@article).authors_own? %>
+    <%= link_to 'Edit', edit_article_path(@article) %> |
+  <% end %>
+  <% if policy(@article).destroy? %>
+    <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <% end %>
+</div>
+
+<div>
+  <hr>
+  <%= link_to 'Back', articles_path %>
+</div>

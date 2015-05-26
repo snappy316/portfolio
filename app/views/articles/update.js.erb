@@ -1,4 +1,4 @@
 $('#edit_article_<%= @article.id %>').remove();
-$('#articles_container').show('slow');
+$('#articles_container').show();
 $('#<%= dom_id @article %>').replaceWith('<%= j render(@article) %>');
 $('#new_link').show();
