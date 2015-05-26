@@ -1,23 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <div id="articles_container">
-  <h1>Listing Articles</h1>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Body</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody id="articles_index">
-      <% @articles.each do |article| %>
-        <%= render article, locals: { articles: @articles } %>
-      <% end %>
-    </tbody>
-  </table>
+  <% @articles.each do |article| %>
+    <%= render article, locals: { articles: @articles } %>
+  <% end %>
 
   <%= will_paginate @articles %>
 </div>

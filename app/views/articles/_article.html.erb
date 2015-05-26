@@ -1,11 +1,15 @@
-<tr class="article" id="<%= dom_id article %>">
-  <td><%= article.title %></td>
-  <td><%= markdown(article.body) %></td>
-  <td><%= link_to 'Show', article, remote: true %></td>
-  <% if policy(article).update? %>
-    <td><%= link_to 'Edit', edit_article_path(article), remote: true %></td>
-  <% end %>
-  <% if policy(article).destroy? %>
-    <td><%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
-  <% end %>
-</tr>
+<div class="article" id="<%= dom_id article %>">
+  <h2><%= link_to article.title, article, remote: true %></h2>
+  <p><%= markdown(article.body) %></p>
+
+  <div class="article_links">
+    <% if policy(article).update? %>
+      <%= link_to 'Edit', edit_article_path(article), remote: true %>
+    <% end %>
+    <% if policy(article).destroy? %>
+      | <%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+    <% end %>
+  </div>
+
+  <hr>
+</div>
