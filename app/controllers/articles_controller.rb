@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles
   def index
-    @articles = policy_scope(Article).paginate(page: params[:page], per_page: 5)
+    @articles = policy_scope(Article).order('created_at DESC').paginate(page: params[:page], per_page: 5)
   end
 
   # GET /articles/1
