@@ -41,4 +41,16 @@ feature "Visit the Article Index" do
     page.text.must_include(articles(:unpub_ed).title)
     page.text.must_include(articles(:unpub_au).title)
   end
+
+  scenario "articles are paginated" do
+    skip
+    # Given any user
+
+    # When I go to the articles page
+    visit articles_path
+
+    # Then I should see a paginated list of articles
+    page.text.must_include("Previous")
+    page.text.must_include("Next")
+  end
 end
