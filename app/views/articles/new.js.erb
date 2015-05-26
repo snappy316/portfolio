@@ -4,3 +4,4 @@ if ($('#new_article').length) {
 } else {
   $('#new_link').hide().after('<%= j render("form") %>');
 }
+history.pushState(null, "", "<%= j new_article_url %>");

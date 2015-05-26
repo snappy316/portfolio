@@ -1,6 +1,7 @@
 $(function() {
   $("#articles_container").on("click", ".pagination a", function(){
     $.getScript(this.href);
+    history.pushState(null, "", this.href);
     return false;
   });
 });
