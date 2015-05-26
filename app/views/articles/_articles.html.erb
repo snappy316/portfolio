@@ -1,0 +1,17 @@
+<% @articles.each do |article| %>
+  <div class="article" id="<%= dom_id article %>">
+    <h1><%= link_to article.title, article, remote: true %></h1>
+    <p><%= markdown(article.body) %></p>
+
+    <div class="article_links">
+      <% if policy(article).update? %>
+        <%= link_to 'Edit', edit_article_path(article), remote: true %>
+      <% end %>
+      <% if policy(article).destroy? %>
+        | <%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+      <% end %>
+    </div>
+
+    <hr>
+  </div>
+<% end %>

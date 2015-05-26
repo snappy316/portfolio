@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <div id="articles_container">
-  <% @articles.each do |article| %>
-    <%= render article, locals: { articles: @articles } %>
-  <% end %>
+  <%= render 'articles' %>
+  <%# render article, locals: { articles: @articles } %>
 
   <%= will_paginate @articles %>
 </div>
