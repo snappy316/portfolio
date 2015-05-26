@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles
   def index
-    @articles = policy_scope(Article)
+    @articles = policy_scope(Article).order('created_at DESC').paginate(page: params[:page], per_page: 5)
   end
 
   # GET /articles/1
@@ -90,6 +90,6 @@ class ArticlesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def article_params
-    params.require(:article).permit(:title, :body, :image_url, (:published if current_user.role == "editor"))
+    params.require(:article).permit(:title, :body, :image_url, :page, (:published if current_user.role == "editor"))
   end
 end

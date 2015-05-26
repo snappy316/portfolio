@@ -52,13 +52,13 @@ feature "Editing an Article" do
     visit articles_path
 
     # Then I should not see an "Edit" link
-    page.wont_have_link('Edit')
+    page.text.wont_include('Edit ')
 
     # When I visit an individual article page
     visit article_path(articles(:ror).id)
 
     # Then I should not see an "Edit" link
-    page.wont_have_link('Edit')
+    page.text.wont_include('Edit ')
 
     # When I try to hack it and go to the edit path
     visit edit_article_path(articles(:ror).id)

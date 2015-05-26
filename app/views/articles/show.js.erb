@@ -1,0 +1,3 @@
+$('#articles_container').hide().after('<%= j render("article") %>');
+$('#new_link').hide();
+history.pushState(null, "", "<%= j article_url(@article) %>");

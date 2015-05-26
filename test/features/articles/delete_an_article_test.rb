@@ -10,14 +10,14 @@ feature "Deleting an Article" do
 
     # Then I can see and click on "Delete" to delete an article
     page.text.must_include('Delete')
-    page.first(:css, 'tr.article').click_on('Delete')
+    page.first('.article').click_on('Delete')
 
     # When I visit an individual article's page
-    visit article_path(articles(:unpub_au).id)
+    visit article_path(articles(:pub_au).id)
 
     # Then I can see and click on "Delete" to delete an article
     page.text.must_include('Delete')
-    click_on('Delete')
+    page.first('.article_links').click_on('Delete')
   end
 
   scenario "authors cannot delete articles" do

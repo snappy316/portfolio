@@ -1,6 +1,7 @@
-$('#articles_container').hide('slow');
+$('#articles_container').hide();
 if ($('#new_article').length) {
   $('#new_article').replaceWith('<%= j render("form") %>');
 } else {
   $('#new_link').hide().after('<%= j render("form") %>');
 }
+history.pushState(null, "", "<%= j new_article_url %>");

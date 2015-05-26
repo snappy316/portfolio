@@ -16,7 +16,7 @@ feature "Creating an Article" do
     page.text.must_include(articles(:unpub_au).title)
     page.has_css?("#author")
     page.text.must_include(users(:author).email)
-    page.text.must_include("Status: Unpublished")
+    page.text.must_include("UNPUBLISHED")
   end
 
   scenario "unauthenticated site visitors cannot access new_article_path" do
@@ -64,6 +64,6 @@ feature "Creating an Article" do
     click_on('Create Article')
 
     # Then I should see the published article
-    page.text.must_include("Status: Published")
+    page.text.wont_include("UNPUBLISHED")
   end
 end
