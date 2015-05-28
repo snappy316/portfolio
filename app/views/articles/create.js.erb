@@ -1,5 +1,2 @@
-$('#new_article').remove();
-$('#articles_container').show();
-$('#new_link').show();
-$('#articles_index').append('<%= j render(@article) %>');
+$('#new_article').hide().after('<%= j render("article") %>');
 history.pushState(null, "", "<%= j article_url(@article) %>");

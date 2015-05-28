@@ -9,8 +9,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1
   def show
-    @comment = @article.comments.build
-    @comments = policy_scope(@article.comments)
+    set_comments
   end
 
   # GET /articles/new
@@ -41,6 +40,7 @@ class ArticlesController < ApplicationController
       format.js do
         if @article.save
           current_user.articles << @article
+          set_comments
         else
           render :new, status: :unprocessable_entity
         end
@@ -63,6 +63,7 @@ class ArticlesController < ApplicationController
 
       format.js do
         @article.update(article_params)
+        set_comments
       end
     end
   end
@@ -86,6 +87,11 @@ class ArticlesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_article
     @article = Article.find(params[:id])
+  end
+
+  def set_comments
+    @comment = @article.comments.build
+    @comments = policy_scope(@article.comments)
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
