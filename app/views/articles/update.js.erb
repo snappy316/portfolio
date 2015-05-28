@@ -1,3 +1,5 @@
-$('#edit_article_<%= @article.id %>').replaceWith('<%= j render(@article) %>');
-$('#edit_links').remove();
+$('#edit_article_<%= @article.id %>').remove();
+$('#articles_container').show();
+$('#<%= dom_id @article %>').replaceWith('<%= j render(@article) %>');
+$('#new_link').show();
 history.pushState(null, "", "<%= j article_url(@article) %>");

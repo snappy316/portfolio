@@ -32,5 +32,5 @@
   <% if policy(@article).destroy? %>
     <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' } %> |
   <% end %>
-  <%= link_to 'All Articles', articles_path %>
+  <%= link_to 'Back', articles_path %>
 </div>
