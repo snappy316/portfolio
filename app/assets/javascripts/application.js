@@ -21,5 +21,5 @@
 $(function(){ $(document).foundation(); });
 
 $(document).ajaxError(function(event, xhr, settings, exception) {
-  return alert(exception));
+  return alert(exception);
 });
